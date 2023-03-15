@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// VARIABLES
+$green-color: #087f5b;
+$typography-color: #555;
+
+// MIXINS
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+    // 600px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+    // 900px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+    // 1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
+//STYLING
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: "Inter", sans-serif;
+  color: $typography-color;
+}
+
+// NAVBAR
+.header {
+  @apply flex items-center justify-between h-36 py-0 px-20 relative;
+  border-bottom: 1px solid #eee;
+}
+.logo {
+  @apply font-bold text-3xl lg:text-4xl;
+}
+.logo-link:link,
+.logo-link:visited {
+  color: $typography-color;
+}
+.header-class {
+  color: $green-color;
+}
+.main-nav-list {
+  @apply hidden flex lg:items-center gap-20 font-semibold;
+}
+.main-nav-link {
+  transition: all 0.3s;
+  color: $typography-color;
+  font-size: 1.8rem;
+}
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: $green-color;
+}
+
+// HERO SECTION
+.hero-section {
+  padding: 4.8rem 0 9.6rem 0;
+
+  &--hero {
+    @apply grid mx-auto items-center gap-20 lg:grid-cols-2 gap-32;
+    max-width: 130rem;
+    padding: 0 3.2rem;
+  }
+
+  &--hero-img-box {
+    @apply w-full;
+  }
+}
+.heading-primary {
+  @apply font-bold text-5xl  lg:text-7xl mb-12;
+  @include respond(phone) {
+    text-align: center;
+  }
+}
