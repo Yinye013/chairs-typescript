@@ -1,10 +1,17 @@
-import React from "react";
+import { useState } from "react";
+import { FaBars } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
+
 type NavbarProps = {
   links: string[];
 };
 
 const Navbar = (props: NavbarProps) => {
   const title: string = "TheChair";
+  const [open, setOpen] = useState<boolean>(false);
+  const handleClick = () => {
+    setOpen(!open);
+  };
 
   return (
     <div>
@@ -16,7 +23,7 @@ const Navbar = (props: NavbarProps) => {
           </p>
         </a>
         {/* Nav */}
-        <nav className="main-nav">
+        <nav className={open ? "main-nav" : "nav-open"}>
           <ul className="main-nav-list">
             {props.links.map((link) => (
               <li key={link} className="main-nav-link">
@@ -26,6 +33,9 @@ const Navbar = (props: NavbarProps) => {
               </li>
             ))}
           </ul>
+          <button className="nav-button" onClick={handleClick}>
+            {open ? <AiOutlineClose /> : <FaBars />}
+          </button>
         </nav>
       </header>
     </div>

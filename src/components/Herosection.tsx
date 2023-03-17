@@ -1,5 +1,6 @@
 import React from "react";
 import HeroImage from "../images/hero.jpg";
+
 const Herosection = () => {
   const headingPrimary: string =
     "For a better life, we design and create better seats.";
@@ -11,8 +12,10 @@ const Herosection = () => {
       <div className="hero-section--hero">
         <div className="hero-section--hero-text-box">
           <h1 className="heading-primary">{headingPrimary}</h1>
-          <p className="hero-description">{heroDescription}</p>
-          <a href="/" className="hero-link"></a>
+          <p className="hero-section--hero-description">{heroDescription}</p>
+          <a href="/" className="hero-section--hero-link">
+            Learn More &darr;
+          </a>
         </div>
         <div className="hero-section--hero-img-box">
           <img src={HeroImage} alt={heroDescription} />
