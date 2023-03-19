@@ -9,10 +9,18 @@ import Dominos from "../featuresfolder/dominoslogo-removebg-preview.png";
 import Cosmopolitan from "../featuresfolder/cosmopolitanlogo-removebg-preview.png";
 import CountryLiving from "../featuresfolder/countrylivinglogo-removebg-preview.png";
 import GoodMorningAmerica from "../featuresfolder/goodmorningamericalogo-removebg-preview.png";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useAnimation } from "framer-motion";
+import useMultipleAnimations from "../hooks/useMultipleAnimations";
 
 const Featured = () => {
+  let { ref, inView } = useInView();
+  const animation = useAnimation();
+  useMultipleAnimations(inView, animation);
+
   return (
-    <section className="featured-section">
+    <motion.div ref={ref} animate={animation} className="featured-section">
       <div className="container">
         <h3 className="featured-heading">As Featured In</h3>
         <div className="featured-logo">
@@ -29,7 +37,7 @@ const Featured = () => {
           <img src={GoodMorningAmerica} alt="Good Morning America Logo" />
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 };
 

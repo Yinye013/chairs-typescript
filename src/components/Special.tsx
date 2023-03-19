@@ -2,6 +2,10 @@ import React from "react";
 import { GiFizzingFlask } from "react-icons/gi";
 import { BsEmojiSmile } from "react-icons/bs";
 import { BsFillSuitHeartFill } from "react-icons/bs";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useAnimation } from "framer-motion";
+import useMultipleAnimations from "../hooks/useMultipleAnimations";
 
 const Special = () => {
   const firstText: string =
@@ -12,8 +16,12 @@ const Special = () => {
   const thirdText: string =
     "Chairs are a common piece of furniture that we use every day. We sit on them while working, eating, relaxing, and socializing. While chairs come in many shapes, sizes, and materials, it is important to consider their ethical and long-term impact before making a purchase.";
 
+  let { ref, inView } = useInView();
+  const animation = useAnimation();
+  useMultipleAnimations(inView, animation);
+
   return (
-    <section className="special-section">
+    <motion.div ref={ref} animate={animation} className="special-section">
       <div className="container">
         <h3 className="subheading">What Makes our chairs special</h3>
         <h2 className="heading-secondary">Why are our chairs unique?</h2>
@@ -36,7 +44,7 @@ const Special = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 };
 

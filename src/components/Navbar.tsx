@@ -16,7 +16,7 @@ const Navbar = (props: NavbarProps) => {
   return (
     <div>
       <header className="header">
-        <a href="#" className="logo-link">
+        <a href="/" className="logo-link">
           <p className="logo">
             {title}
             <span className="header-class">Shop.</span>
