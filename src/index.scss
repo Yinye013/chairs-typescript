@@ -47,7 +47,7 @@ html {
   color: $typography-color;
 }
 
-// NAVBAR
+// NAVBAR //
 .header {
   @apply flex items-center justify-between h-36 py-0 px-20 relative;
   border-bottom: 1px solid #eee;
@@ -81,7 +81,7 @@ html {
   @apply text-3xl lg:hidden md:hidden;
 }
 
-// HERO SECTION
+// HERO SECTION //
 .hero-section {
   padding: 4.8rem 0 9.6rem 0;
 
@@ -126,6 +126,63 @@ html {
   @apply font-bold text-5xl mb-12;
   font-size: 5rem;
   @include respond(phone) {
-    font-size: 3rem;
+    @apply text-[3rem];
   }
+}
+.heading-primary-span {
+  color: $green-color;
+}
+
+.container {
+  @apply max-w-[120rem] mx-auto;
+  padding: 0 3.2rem;
+}
+
+//FEATURED //
+.featured-section {
+  padding: 4.8rem 0 9.6rem 0;
+}
+.featured-heading {
+  @apply text-[1.4rem] uppercase font-[500] text-center mb-[2.4rem] tracking-[0.75px];
+}
+.featured-logo {
+  @apply grid grid-cols-2 lg:grid-cols-5;
+  column-gap: 2rem;
+  row-gap: 1.8rem;
+}
+.featured-logo img {
+  @apply h-[4.8rem] m-auto;
+  filter: brightness(0);
+  opacity: 55%;
+  @include respond(phone) {
+    @apply h-16;
+  }
+}
+
+// SPECIALS
+.subheading {
+  @apply block text-[1.6rem] font-[500] uppercase mb-[1.6rem];
+  letter-spacing: 0.75px;
+  color: $typography-color;
+}
+.heading-secondary {
+  @apply text-[4rem] font-[800] mb-[4.5rem] leading-tight;
+
+  color: #444;
+}
+.heading-tertiary {
+  @apply font-bold mb-[2rem] text-[1.9rem] leading-tight;
+}
+.special-section {
+  padding: 9.6rem 0;
+}
+.special-container {
+  @apply grid lg:grid-cols-3 gap-14;
+}
+.special-icon {
+  @apply w-[3rem] h-[3rem] mb-[1.6rem];
+  color: $green-color;
+}
+.special-description {
+  @apply text-[1.5rem] leading-relaxed;
 }
